@@ -1,9 +1,6 @@
 package com.spring.learn.sfgdi;
 
-import com.spring.learn.sfgdi.controllers.ConstructorInjectedController;
-import com.spring.learn.sfgdi.controllers.MyController;
-import com.spring.learn.sfgdi.controllers.PropertyInjectedController;
-import com.spring.learn.sfgdi.controllers.SetterInjectedController;
+import com.spring.learn.sfgdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -13,6 +10,13 @@ public class SfgDiApplication {
 
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(SfgDiApplication.class, args);
+
+        System.out.println("=============================");
+
+        I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+        System.out.println(i18nController.greet());
+
+        System.out.println("=============================");
 
         MyController controller = (MyController) ctx.getBean("myController");
 
